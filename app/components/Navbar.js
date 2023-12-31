@@ -4,7 +4,7 @@ import Container from "./Container"
 
 const Navbar = () => {
   return (
-    <div className='fixed w-full bg-green-300 z-10 shadow-sm'>
+    <div className='fixed w-full bg-green-400 z-10 shadow-sm'>
       <div
         className='
           py-4 
@@ -22,7 +22,7 @@ const Navbar = () => {
               md:gap-0a
             '
           >
-           Ipo Notifier
+           <p className="text-white">Ipo Notifier</p>
           </div>
         </Container>
       </div>
