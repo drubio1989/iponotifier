@@ -4,7 +4,7 @@ import Container from "./Container"
 
 const Navbar = () => {
   return (
-    <div className='fixed w-full bg-green-400 z-10 shadow-sm'>
+    <div className='fixed w-full bg-teal-500 z-10 shadow-sm'>
       <div
         className='
           py-4 
