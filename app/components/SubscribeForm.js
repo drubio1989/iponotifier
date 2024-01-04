@@ -9,7 +9,7 @@ const SubscribeForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post('', Object.assign(data, { operation: 'subscribe'}))
+      await axios.post(`${process.env.IPO_CALENDAR_URL}/ipo-calendar`, Object.assign(data, { operation: 'subscribe'}))
       toast.success('Thank you for subscribing!')
     } catch(error) {
       toast.error('Something went wrong')
