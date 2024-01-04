@@ -28,7 +28,7 @@ const Home = () => {
             <div className="w-1/2 h-12">
               <div className="pt-7 gap-8 container mx-auto p-4">
                 <div className="container mx-auto p-4">
-                  <p className="text-teal-600 font-semibold">Don't fall behind! Subscribe now to receive notifications about upcoming Initial Public Offerings. Don't miss out on the next big investment opportunity. Start your journey to financial success today!</p>
+                  <p className="text-teal-600 font-semibold">Don&apos;t fall behind! Subscribe now to receive notifications about upcoming Initial Public Offerings. Don&apos;t miss out on the next big investment opportunity. Start your journey to financial success today!</p>
                 </div>
                     
                 <div className="container mx-auto p-4">
