@@ -1,10 +1,9 @@
 'use client'
 
-import 'dotenv/config'
 import { useEffect, useState } from "react";
-import getIpoCalendar from "@/pages/api/ipo-calendar";
 import Container from "./components/Container";
 import SubscribeForm from "./components/SubscribeForm";
+import { getIpoCalendar } from './actions';
 
 const Home = () => {
   const [ipoCalendarData, setIpoCalendarData] = useState([]);
@@ -45,7 +44,19 @@ const Home = () => {
             </div>
             <div className="w-full md:w-2/3 h-12">
               <div className="container mx-auto p-4 overflow-x-auto">
-                <table className="w-full bg-white border border-gray-300">
+                <table
+                  className="
+                    w-full 
+                    bg-white 
+                    border 
+                    border-gray-300
+                    max-w-[2520px] 
+                    mx-auto 
+                    xl:px-20 
+                    md:px-10 
+                    sm:px-2
+                    px-4"
+                >
                   <thead>
                     <tr className="bg-teal-500 border-b border-gray-300">
                       <th className="py-2 px-4 text-white">Company</th>

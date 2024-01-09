@@ -14,3 +14,13 @@ export const postSubscribeEmail = async (data) => {
     console.log(`Something went wrong: ${error}`)
   }
 }
+
+export const getIpoCalendar = async () => {
+  try {
+    const response = await axios.get(`${process.env.IPO_CALENDAR_URL}`);    
+    const data = response.data.body;
+    return JSON.parse(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
