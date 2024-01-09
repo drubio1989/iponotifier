@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
 import Container from "./components/Container";
 import SubscribeForm from "./components/SubscribeForm";
 import { getIpoCalendar } from './actions';
@@ -85,7 +86,9 @@ const Home = () => {
                       ))
                     ): (
                       <tr>
-                        <td colSpan="8" className="py-2 px-4 text-center">Loading...</td>
+                        <td>
+                          <Loader />
+                        </td>
                       </tr>
                     )}
                   </tbody>
