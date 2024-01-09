@@ -30,47 +30,54 @@ const SubscribeForm = () => {
 
   return (
     <div>
-      <form className="w-full max-w-sm" onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex items-center border-b border-teal-500 py-2">
-          <input data-lpignore="true"
-            className="
-              appearance-none 
-              bg-transparent 
-              border-none 
-              w-full 
-              text-gray-700 
-              mr-3 
-              py-1 
-              px-2 
-              leading-tight 
-              focus:outline-none
-            " 
-            {...register('email', { 
-              required: "Email is required", 
-              pattern: {
-                value: /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/,
-                message: 'Invalid email address',
-              }    
-            })}
-            aria-invalid={errors.email ? "true" : "false"}
-          />
-          {errors.email && <span className='leading-tight w-full text-red-500' >{errors.email.message}</span>}
-
-          <input 
-            className="
-              flex-shrink-0 
-              bg-teal-500 
-              hover:bg-teal-700 
-              border-teal-500 
-              hover:border-teal-700 
-              text-sm border-4 
-              text-white 
-              py-1 
-              px-2 
-              rounded ml-auto
-            " 
-            type='submit'
-          />
+      <form className="w-max" onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex items-center flex-col">
+          {errors.email && (
+            <span className='leading-tight w-full text-red-500' >
+              {errors.email.message}
+            </span>
+          )}
+          <div className="flex items-center border-b border-teal-500 py-2">
+            <input data-lpignore="true"
+              className="
+                w-full 
+                text-gray-700 
+                mr-3 
+                py-1 
+                px-2 
+                leading-tight
+                rounded-md
+                transition
+                disabled:opacity-70
+                disabled:cursor-not-allowed
+                border-neutral-300
+                focus:border-teal-500
+              " 
+              {...register('email', { 
+                required: "Email is required", 
+                pattern: {
+                  value: /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/,
+                  message: 'Invalid email address',
+                }    
+              })}
+              aria-invalid={errors.email ? "true" : "false"}
+            />
+            <input 
+              className="
+                flex-shrink-0 
+                bg-teal-500 
+                hover:bg-teal-700 
+                border-teal-500 
+                hover:border-teal-700 
+                text-sm border-4 
+                text-white 
+                py-1 
+                px-2 
+                rounded ml-auto
+              " 
+              type='submit'
+            />
+          </div>
         </div>
       </form>
     </div>
