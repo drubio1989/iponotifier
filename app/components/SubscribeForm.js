@@ -1,20 +1,22 @@
 'use client'
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import axios from "axios";
 import toast from "react-hot-toast";
+import { postSubscribeEmail } from "../actions";
 
 const SubscribeForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_IPO_CALENDAR_URL}/subscribe`, Object.assign(data, { operation: 'subscribe'}))
+      await postSubscribeEmail(data);
       toast.success('Thank you for subscribing!')
-    } catch(error) {
+      reset();
+    } catch (error) {
       toast.error('Something went wrong')
+      reset();
     }
-  }
+  };
 
   return (
     <div>

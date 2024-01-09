@@ -1,13 +1,13 @@
 'use server'
 
 import axios from 'axios';
+import 'dotenv/config'
 
 const getIpoCalendar = async () => {
-  console.log(`${process.env.NEXT_PUBLIC_IPO_CALENDAR_URL}/ipo-calendar`)
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_IPO_CALENDAR_URL}/ipo-calendar`);
-    const data = response.json();
-    return data;
+    const response = await axios.get(`${process.env.IPO_CALENDAR_URL}`);    
+    const data = response.data.body;
+    return JSON.parse(data);
   } catch (error) {
     console.error(error);
   }

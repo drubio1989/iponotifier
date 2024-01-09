@@ -1,5 +1,6 @@
 'use client'
 
+import 'dotenv/config'
 import { useEffect, useState } from "react";
 import getIpoCalendar from "@/pages/api/ipo-calendar";
 import Container from "./components/Container";
@@ -58,7 +59,7 @@ const Home = () => {
                           <td className="py-2 px-4">{company.Company}</td>
                           <td className="py-2 px-4">{company.Symbol}</td>
                           <td className="py-2 px-4">{company.EstimatedVolume}</td>
-                          <td className="py-2 px-4">{format(new Date(company.ExpectedToTrade), 'eeee MM/dd/yyyy')}</td>
+                          <td className="py-2 px-4">{new Date(company.ExpectedToTrade).toLocaleDateString()}</td>
                           <td className="py-2 px-4">{company.LeadManagers}</td>
                           <td className="py-2 px-4">{company.NoOfShares} mil</td>
                           <td className="py-2 px-4">{company.PriceHigh}</td>
