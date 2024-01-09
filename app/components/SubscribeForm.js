@@ -9,11 +9,21 @@ const SubscribeForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await postSubscribeEmail(data);
-      toast.success('Thank you for subscribing!')
-      reset();
+      const result = await postSubscribeEmail(data);
+      
+      if (result.statusCode === 409) {
+        toast.success('This email is already subscribed!')
+        return;
+      }
+
+      if (result.statusCode === 201) {
+        toast.success('Thank you for subscribing!')
+        return;
+      }
+     
     } catch (error) {
       toast.error('Something went wrong')
+    } finally {
       reset();
     }
   };
