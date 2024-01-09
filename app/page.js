@@ -73,7 +73,7 @@ const Home = () => {
                   <tbody>
                     {ipoCalendarData ? (
                       ipoCalendarData.map((company, index) => (
-                        <tr className="even:bg-teal-700 odd:bg-white dark:even:bg-teal-100" key={index}>
+                        <tr className="even:bg-teal-100 odd:bg-white dark:even:bg-teal-100" key={index}>
                           <td className="py-2 px-4">{company.Company}</td>
                           <td className="py-2 px-4">{company.Symbol}</td>
                           <td className="py-2 px-4">{company.EstimatedVolume}</td>
