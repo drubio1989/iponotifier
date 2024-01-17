@@ -37,46 +37,38 @@ const SubscribeForm = () => {
               {errors.email.message}
             </span>
           )}
-          <div className="flex items-center border-b border-teal-500 py-2">
-            <input data-lpignore="true"
-              className="
-                w-full 
-                text-gray-700 
-                mr-3 
-                py-1 
-                px-2 
-                leading-tight
-                rounded-md
-                transition
-                disabled:opacity-70
-                disabled:cursor-not-allowed
-                border-neutral-300
-                focus:border-teal-500
-              " 
-              {...register('email', { 
-                required: "Email is required", 
-                pattern: {
-                  value: /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/,
-                  message: 'Invalid email address',
-                }    
-              })}
-              aria-invalid={errors.email ? "true" : "false"}
-            />
-            <input 
-              className="
-                flex-shrink-0 
-                bg-teal-500 
-                hover:bg-teal-700 
-                border-teal-500 
-                hover:border-teal-700 
-                text-sm border-4 
-                text-white 
-                py-1 
-                px-2 
-                rounded ml-auto
-              " 
-              type='submit'
-            />
+          <div className="w-full">
+            <div className={(`border border-teal-400 rounded py-5 px-4`)}>
+              <h4 className={(`font-mono text-sm uppercase text-gray-500 mb-3`)}>Subscribe to the newsletter</h4>
+              <input data-lpignore="true"
+                className="rounded-md border border-gray-300 bg-gray-100 min-w-0 rounded text-gray-800 py-2 px-3 mr-2"
+                placeholder="Enter your email"
+                {...register('email', { 
+                  required: "Email is required", 
+                  pattern: {
+                    value: /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/,
+                    message: 'Invalid email address',
+                  }    
+                })}
+                aria-invalid={errors.email ? "true" : "false"}
+              />
+              <input 
+                className="
+                  flex-shrink-0 
+                  bg-teal-500 
+                  hover:bg-teal-700 
+                  border-teal-500 
+                  hover:border-teal-700 
+                  text-sm border-4 
+                  text-white 
+                  py-1 
+                  px-2 
+                  rounded ml-auto
+                " 
+                type='submit'
+                value='Subscribe'
+              />
+            </div>
           </div>
         </div>
       </form>
