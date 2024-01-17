@@ -1,26 +1,13 @@
-'use client'
 
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
+import { motion } from "framer-motion"
 import Loader from "./components/Loader";
 import Container from "./components/Container";
 import SubscribeForm from "./components/SubscribeForm";
-import { getIpoCalendar } from './actions';
+import { fetchIPOs } from './actions';
 
-const Home = () => {
-  const [ipoCalendarData, setIpoCalendarData] = useState([]);
-
-  useEffect(() => {
-    const fetchIpoCalendarData = async () => {
-      try {
-        const data = await getIpoCalendar();
-        setIpoCalendarData(data)
-      } catch (error) {
-        console.error('Error executing server action:', error);
-      }
-    };
-
-    fetchIpoCalendarData();
-  }, []);
+const Home = async () => {
+  const ipoData = await fetchIPOs();
 
   return (
     <div>
@@ -70,28 +57,23 @@ const Home = () => {
                       <th className="py-2 px-4 text-white">Price Low</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    {ipoCalendarData ? (
-                      ipoCalendarData.map((company, index) => (
-                        <tr className="even:bg-teal-100 odd:bg-white dark:even:bg-teal-100" key={index}>
-                          <td className="py-2 px-4">{company.Company}</td>
-                          <td className="py-2 px-4">{company.Symbol}</td>
-                          <td className="py-2 px-4">{company.EstimatedVolume}</td>
-                          <td className="py-2 px-4">{new Date(company.ExpectedToTrade).toLocaleDateString()}</td>
-                          <td className="py-2 px-4">{company.LeadManagers}</td>
-                          <td className="py-2 px-4">{company.NoOfShares} mil</td>
-                          <td className="py-2 px-4">${company.PriceHigh}</td>
-                          <td className="py-2 px-4">${company.PriceLow}</td>
-                        </tr>
-                      ))
-                    ): (
-                      <tr>
-                        <td>
-                          <Loader />
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
+                  <Suspense fallback={<Loader />}>
+                    <tbody>
+                        {ipoData.map((company, index) => (
+                          <tr className="even:bg-teal-100 odd:bg-white dark:even:bg-teal-100" key={index}>
+                            <td className="py-2 px-4">{company.Company}</td>
+                            <td className="py-2 px-4">{company.Symbol}</td>
+                            <td className="py-2 px-4">{company.EstimatedVolume}</td>
+                            <td className="py-2 px-4">{new Date(company.ExpectedToTrade).toLocaleDateString()}</td>
+                            <td className="py-2 px-4">{company.LeadManagers}</td>
+                            <td className="py-2 px-4">{company.NoOfShares} mil</td>
+                            <td className="py-2 px-4">${company.PriceHigh}</td>
+                            <td className="py-2 px-4">${company.PriceLow}</td>
+                          </tr>
+                        ))
+                      }
+                    </tbody>
+                  </Suspense>
                 </table>
               </div>
             </div>

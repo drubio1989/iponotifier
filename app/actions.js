@@ -15,10 +15,11 @@ export const postSubscribeEmail = async (data) => {
   }
 }
 
-export const getIpoCalendar = async () => {
+export const fetchIPOs = async () => {
   try {
     const response = await axios.get(`${process.env.IPO_CALENDAR_URL}`);    
     const data = response.data.body;
+    
     return JSON.parse(data);
   } catch (error) {
     console.error(error);
