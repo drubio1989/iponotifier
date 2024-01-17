@@ -33,7 +33,7 @@ const SubscribeForm = () => {
       <form className="w-max" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex items-center flex-col">
           {errors.email && (
-            <span className='leading-tight w-full text-red-500' >
+            <span className='font-mono leading-tight w-full text-red-500 mb-2' >
               {errors.email.message}
             </span>
           )}
