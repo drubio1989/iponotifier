@@ -1,8 +1,8 @@
-
 import { Suspense } from "react";
 import { motion } from "framer-motion"
 import Header from "./components/Header";
 import Section from "./components/Section";
+import Footer from "./components/Footer";
 
 const Home = async () => {
   return (
@@ -10,6 +10,7 @@ const Home = async () => {
        <Header/>
        <hr className="border-teal-400"/>
        <Section/>
+       <Footer/>
     </div>
   )
 }

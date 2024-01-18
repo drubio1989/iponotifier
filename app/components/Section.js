@@ -4,22 +4,16 @@ import { fetchIPOs } from "../actions";
 
 const listItems = [
   {
-    title: `Designers`,
-    description: `Officia et fugiat mollit qui. Dolor elit aliqua voluptate ipsum
-    excepteur cillum consequat consectetur duis magna qui eu consequat occaecat.
-    Deserunt nisi sit.`,
+    title: `Subscribe`,
+    description: `Subscribe to the newsletter to be notified.`,
   },
   {
-    title: `Developers`,
-    description: `Pariatur consectetur laboris exercitation duis laboris.
-    Commodo duis fugiat magna fugiat et ut anim elit. Tempor aute ex qui
-    tempor tempor.`,
+    title: `Get Notified`,
+    description: `The day before the initial public offering trades, a notification email will land in your mailbox.`,
   },
   {
-    title: `Product owners`,
-    description: `Ullamco consectetur ipsum eiusmod nisi adipisicing sint anim
-    dolore aute excepteur. Voluptate ea ullamco sunt eu elit qui aliquip.
-    Adipisicing.`,
+    title: `Unsubscribe`,
+    description: `Done with notifications? No problem. Unsubscribe anytime by clicking the unsubscribe link located in the email notifications.`,
   },
 ];
 
@@ -27,72 +21,38 @@ const Section = async () => {
   const ipoData = await fetchIPOs();
 
   return(
-    <section className="lg:py-28 overflow-hidden">
+    <section className="lg:py-10">
       <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 bg-white">
         <div className="text-center">
           <h2 className="text-base text-teal-600 font-semibold tracking-wide uppercase">Features</h2>
-          <p className="mt-2 pb-4 text-5xl lg:text-7xl font-bold tracking-tight text-teal-600">
+          <p className="mt-2 text-5xl lg:text-7xl font-bold tracking-tight text-teal-600">
             How It Works
           </p>
         </div>
 
-
+       
         <div className="flex flex-wrap my-12">
-          <div className="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-8">
-            <div className="px-4">
-              <span
-                className="flex w-16 h-16 mx-auto items-center
-                  justify-center text-2xl font-bold rounded-full
-                  bg-teal-100 text-teal-500"
-              >
-                1
-              </span>
-            </div>
-            <div className="flex items-center mb-6">
-              <div className="ml-4 text-xl">Increase sales</div>
-            </div>
-            <p className="leading-loose text-gray-500">
-              Consectetur pariatur irure exercitation sit amet id consectetur consecteturmagna et Lorem labore qui
-              velit.
-            </p>
-          </div>
-          <div className="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-8">
-            <div className="px-4">
-              <span
-                className="flex w-16 h-16 mx-auto items-center
-                  justify-center text-2xl font-bold rounded-full
-                  bg-teal-100 text-teal-500"
-              >
-                2
-              </span>
-            </div>
-            <div className="flex items-center mb-6">
-              <div className="ml-4 text-xl">Enterprise-ready</div>
-            </div>
-            <p className="leading-loose text-gray-500 ">
-              Labore duis pariatur est exercitation laboris cupidatat amet cillum. Amet nisi ullamco.
-            </p>
-          </div>
-          <div className="w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-8">
-          <div className="px-4">
-              <span
-                className="flex w-16 h-16 mx-auto items-center
-                  justify-center text-2xl font-bold rounded-full
-                  bg-teal-100 text-teal-500"
-              >
-                3
-              </span>
-            </div>
-            <div className="flex items-center mb-6">
-              <div className="ml-4 text-xl">Unlimited growth</div>
-            </div>
-            <p className="leading-loose text-gray-500">
-              Elit deserunt nisi esse duis cupidatat proident sit minim mollit officia pariatur incididunt in tempor.
-            </p>
-          </div>
+          {listItems.map((item, index) => (
+              <div className="w-full border-b border-t md:w-1/2  lg:w-1/3 p-8"  key={index}>
+                <div className="px-4">
+                  <span
+                    className="flex w-16 h-16 mx-auto items-center
+                      justify-center text-2xl font-bold rounded-full
+                      bg-teal-100 text-teal-500"
+                  >
+                    {index + 1}
+                  </span>
+                </div>
+                <div className="flex items-center mb-6 mt-7">
+                  <div className="font-mono ml-4 text-xl text-center w-full">{item.title}</div>
+                </div>
+                <p className="leading-loose text-gray-500 font-mono text-center">
+                  {item.description}
+                </p>
+              </div>
+          ))}
         </div>
 
-        
 
         <div className="flex flex-wrap -mx-8 items-center">
           <div className="w-full px-8">
@@ -113,21 +73,21 @@ const Section = async () => {
                   >
                     <thead>
                       <tr className="bg-teal-500 border-b border-gray-300">
-                        <th className="py-2 px-4 text-white">Company</th>
-                        <th className="py-2 px-4 text-white">Symbol</th>
-                        <th className="py-2 px-4 text-white">Estimated Volume</th>
-                        <th className="py-2 px-4 text-white">Expected To Trade</th>
-                        <th className="py-2 px-4 text-white">Lead Managers</th>
-                        <th className="py-2 px-4 text-white">Number of Shares</th>
-                        <th className="py-2 px-4 text-white">Price High</th>
-                        <th className="py-2 px-4 text-white">Price Low</th>
+                        <th className="py-2 px-4 text-white font-mono">Company</th>
+                        <th className="py-2 px-4 text-white font-mono">Symbol</th>
+                        <th className="py-2 px-4 text-white font-mono">Estimated Volume</th>
+                        <th className="py-2 px-4 text-white font-mono">Expected To Trade</th>
+                        <th className="py-2 px-4 text-white font-mono">Lead Managers</th>
+                        <th className="py-2 px-4 text-white font-mono">Number of Shares</th>
+                        <th className="py-2 px-4 text-white font-mono">Price High</th>
+                        <th className="py-2 px-4 text-white font-mono">Price Low</th>
                       </tr>
                     </thead>
                     <Suspense fallback={<Loader />}>
                       <tbody>
                           {ipoData.map((company, index) => (
                             <tr className="even:bg-teal-100 odd:bg-white dark:even:bg-teal-100" key={index}>
-                              <td className="py-2 px-4">{company.Company}</td>
+                              <td className="py-2 px-4 ">{company.Company}</td>
                               <td className="py-2 px-4">{company.Symbol}</td>
                               <td className="py-2 px-4">{company.EstimatedVolume}</td>
                               <td className="py-2 px-4">{new Date(company.ExpectedToTrade).toLocaleDateString()}</td>
@@ -144,10 +104,7 @@ const Section = async () => {
                 </div>
               </div>
           </div>
-        </div>
-
-
-        
+        </div>        
       </div>
     </section>
   )

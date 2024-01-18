@@ -1,3 +1,5 @@
+'use client'
+
 import SubscribeForm from "./SubscribeForm";
 
 const Header = () => {
