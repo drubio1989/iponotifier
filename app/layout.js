@@ -6,7 +6,7 @@ import Navbar from './components/Navbar'
 const font = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Ipo Notifier',
+  title: 'I.P.O. Notifier',
   description: "Get notified of the next ipo before it's too late!",
 }
 
